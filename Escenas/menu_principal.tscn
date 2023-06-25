@@ -1,0 +1,75 @@
+[gd_scene load_steps=5 format=3 uid="uid://cf0cwr2thpkuc"]
+
+[ext_resource type="Script" path="res://Scripts/menu_principal.gd" id="1_3gi2v"]
+[ext_resource type="Theme" uid="uid://iexdiuxut7gi" path="res://Assets/tema_menu.tres" id="1_hch4x"]
+[ext_resource type="Texture2D" uid="uid://sxtkshn53eat" path="res://Assets/background_fondo.png" id="2_ido3d"]
+[ext_resource type="AudioStream" uid="uid://4bfbgdorf5sv" path="res://Assets/audio_menu.wav" id="4_d78ea"]
+
+[node name="Menu_principal" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_hch4x")
+script = ExtResource("1_3gi2v")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -36.5
+offset_right = 36.5
+offset_bottom = 15.0
+grow_horizontal = 2
+theme = ExtResource("1_hch4x")
+text = "Menú principal"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -71.5
+offset_top = -50.5
+offset_right = 71.5
+offset_bottom = 50.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Jugar" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Nueva partida"
+
+[node name="Opciones" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Configuración"
+
+[node name="Salir" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "Salir del juego"
+
+[node name="Reanudar" type="Button" parent="VBoxContainer"]
+visible = false
+layout_mode = 2
+text = "Continuar partida guardada"
+
+[node name="BackgroundFondo" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(576, 324)
+scale = Vector2(0.24, 0.24)
+texture = ExtResource("2_ido3d")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_d78ea")
+volume_db = -15.0
+autoplay = true
+
+[connection signal="pressed" from="VBoxContainer/Jugar" to="." method="_on_jugar_pressed"]
+[connection signal="pressed" from="VBoxContainer/Opciones" to="." method="_on_opciones_pressed"]
+[connection signal="pressed" from="VBoxContainer/Salir" to="." method="_on_salir_pressed"]
+[connection signal="pressed" from="VBoxContainer/Reanudar" to="." method="_on_reanudar_pressed"]

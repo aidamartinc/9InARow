@@ -1,0 +1,399 @@
+[gd_scene load_steps=23 format=3 uid="uid://bk6bepuij4xge"]
+
+[ext_resource type="Theme" uid="uid://iexdiuxut7gi" path="res://Assets/tema_menu.tres" id="1_q20sj"]
+[ext_resource type="Script" path="res://Scripts/menu_opciones.gd" id="1_xpu8d"]
+[ext_resource type="Texture2D" uid="uid://sxtkshn53eat" path="res://Assets/background_fondo.png" id="2_oomsj"]
+[ext_resource type="AudioStream" uid="uid://4bfbgdorf5sv" path="res://Assets/audio_menu.wav" id="4_d51ns"]
+[ext_resource type="Texture2D" uid="uid://dkj7nl05ejdti" path="res://Assets/Tiles/original/x.png" id="5_lcunx"]
+[ext_resource type="Texture2D" uid="uid://cedf0titbyk5x" path="res://Assets/Tiles/original/x_disabled.png" id="6_dxr0t"]
+[ext_resource type="Texture2D" uid="uid://cqa4balc51neb" path="res://Assets/Tiles/original/o.png" id="7_jdv5f"]
+[ext_resource type="Texture2D" uid="uid://cybo6epgoj57m" path="res://Assets/Tiles/original/o_disabled.png" id="8_1lal0"]
+[ext_resource type="Texture2D" uid="uid://cdvgs8vbth3rw" path="res://Assets/Tiles/original/libre.png" id="9_liqya"]
+[ext_resource type="Texture2D" uid="uid://dmpq4e8c47imf" path="res://Assets/Tiles/original/libre_disabled.png" id="10_5snfi"]
+[ext_resource type="Texture2D" uid="uid://16gy6ck1xnd3" path="res://Assets/Tiles/princesa/x.png" id="11_tge4n"]
+[ext_resource type="Texture2D" uid="uid://q666c1yp3m22" path="res://Assets/Tiles/princesa/x-disabled.png" id="12_dpiau"]
+[ext_resource type="Texture2D" uid="uid://b2x14quwkx47s" path="res://Assets/Tiles/princesa/o.png" id="13_4l0p2"]
+[ext_resource type="Texture2D" uid="uid://doq6u5ckry63h" path="res://Assets/Tiles/princesa/o-disabled.png" id="14_puap2"]
+[ext_resource type="Texture2D" uid="uid://csmmopdrnmn0s" path="res://Assets/Tiles/princesa/libre.png" id="15_u5ojk"]
+[ext_resource type="Texture2D" uid="uid://6fkx3n6w6esy" path="res://Assets/Tiles/princesa/libre-disabled.png" id="16_c6im2"]
+[ext_resource type="Texture2D" uid="uid://u7gls452nxc0" path="res://Assets/Tiles/daltonicos/x_disabled.png" id="18_sl6ep"]
+[ext_resource type="Texture2D" uid="uid://3uvxj6ik404u" path="res://Assets/Tiles/daltonicos/o_disabled.png" id="20_qgm0p"]
+[ext_resource type="Texture2D" uid="uid://c46bmylbuftdl" path="res://Assets/Tiles/daltonicos/libre.png" id="21_fg1yj"]
+[ext_resource type="Texture2D" uid="uid://cki71x4je7qo3" path="res://Assets/Tiles/daltonicos/libre_disabled.png" id="22_omdpo"]
+[ext_resource type="Texture2D" uid="uid://dc2804ufc0t6d" path="res://Assets/Tiles/daltonicos/x.png" id="23_o7ly3"]
+[ext_resource type="Texture2D" uid="uid://cwlh47t06vcyv" path="res://Assets/Tiles/daltonicos/o.png" id="24_jofkq"]
+
+[node name="Menu_opciones" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_q20sj")
+script = ExtResource("1_xpu8d")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -55.5
+offset_right = 55.5
+offset_bottom = 23.0
+grow_horizontal = 2
+text = "CONFIGURACIÓN"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -102.0
+offset_top = -63.5
+offset_right = 102.0
+offset_bottom = 63.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="FullScreen" type="CheckButton" parent="VBoxContainer"]
+layout_mode = 2
+text = "PANTALLA COMPLETA"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+text = "VOLUMEN"
+
+[node name="Volumen" type="HScrollBar" parent="VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+min_value = -30.0
+max_value = 0.0
+
+[node name="Accesibilidad" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "ASPECTO DE LAS PIEZAS"
+expand_icon = true
+text_direction = 1
+
+[node name="Volver" type="Button" parent="VBoxContainer"]
+layout_mode = 2
+text = "VOLVER AL MENÚ "
+
+[node name="BackgroundFondo" type="Sprite2D" parent="."]
+show_behind_parent = true
+position = Vector2(576, 328)
+scale = Vector2(0.240208, 0.24)
+texture = ExtResource("2_oomsj")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_d51ns")
+volume_db = -15.0
+autoplay = true
+
+[node name="Custom" type="HBoxContainer" parent="."]
+visible = false
+layout_mode = 2
+offset_left = 248.0
+offset_top = 160.0
+offset_right = 936.0
+offset_bottom = 488.0
+alignment = 1
+
+[node name="Original" type="VBoxContainer" parent="Custom"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="Custom/Original"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Original"
+
+[node name="original" type="CheckButton" parent="Custom/Original"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="x" type="TextureButton" parent="Custom/Original"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("5_lcunx")
+
+[node name="x_disabled" type="TextureButton" parent="Custom/Original"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("6_dxr0t")
+
+[node name="o" type="TextureButton" parent="Custom/Original"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("7_jdv5f")
+
+[node name="o_disabled" type="TextureButton" parent="Custom/Original"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("8_1lal0")
+
+[node name="libre" type="TextureButton" parent="Custom/Original"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("9_liqya")
+
+[node name="libre_disabled" type="TextureButton" parent="Custom/Original"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("10_5snfi")
+
+[node name="VSeparator" type="VSeparator" parent="Custom"]
+visibility_layer = 0
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Princesa" type="VBoxContainer" parent="Custom"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="Label" type="Label" parent="Custom/Princesa"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Princesa"
+
+[node name="princesa" type="CheckButton" parent="Custom/Princesa"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="x" type="TextureButton" parent="Custom/Princesa"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("11_tge4n")
+
+[node name="x_disabled" type="TextureButton" parent="Custom/Princesa"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("12_dpiau")
+
+[node name="o" type="TextureButton" parent="Custom/Princesa"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("13_4l0p2")
+
+[node name="o_disabled" type="TextureButton" parent="Custom/Princesa"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("14_puap2")
+
+[node name="libre" type="TextureButton" parent="Custom/Princesa"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("15_u5ojk")
+
+[node name="libre_disabled" type="TextureButton" parent="Custom/Princesa"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("16_c6im2")
+
+[node name="VSeparator2" type="VSeparator" parent="Custom"]
+visibility_layer = 0
+custom_minimum_size = Vector2(30, 0)
+layout_mode = 2
+
+[node name="Daltonicos" type="VBoxContainer" parent="Custom"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+
+[node name="Label" type="Label" parent="Custom/Daltonicos"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 0
+text = "Daltonicos"
+
+[node name="daltonicos" type="CheckButton" parent="Custom/Daltonicos"]
+layout_mode = 2
+size_flags_horizontal = 4
+
+[node name="x" type="TextureButton" parent="Custom/Daltonicos"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("23_o7ly3")
+
+[node name="x_disabled" type="TextureButton" parent="Custom/Daltonicos"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("18_sl6ep")
+
+[node name="o" type="TextureButton" parent="Custom/Daltonicos"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("24_jofkq")
+
+[node name="o_disabled" type="TextureButton" parent="Custom/Daltonicos"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("20_qgm0p")
+
+[node name="libre" type="TextureButton" parent="Custom/Daltonicos"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("21_fg1yj")
+
+[node name="libre_disabled" type="TextureButton" parent="Custom/Daltonicos"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("22_omdpo")
+
+[node name="Volver3" type="Button" parent="Custom"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Volver"
+
+[node name="IrAPersonalizado" type="Button" parent="Custom"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Personalizar"
+
+[node name="AjustesTexturas" type="VBoxContainer" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -152.0
+offset_right = 104.0
+offset_bottom = 152.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label2" type="Label" parent="AjustesTexturas"]
+layout_mode = 2
+text = "Estética casillas jugadores"
+
+[node name="HSeparator2" type="HSeparator" parent="AjustesTexturas"]
+visibility_layer = 0
+custom_minimum_size = Vector2(0, 40)
+layout_mode = 2
+
+[node name="CasillasJugadores" type="HBoxContainer" parent="AjustesTexturas"]
+layout_mode = 2
+size_flags_vertical = 0
+alignment = 1
+
+[node name="X" type="VBoxContainer" parent="AjustesTexturas/CasillasJugadores"]
+layout_mode = 2
+size_flags_horizontal = 0
+
+[node name="Label" type="Label" parent="AjustesTexturas/CasillasJugadores/X"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Jugador X"
+
+[node name="TexturaX" type="TextureButton" parent="AjustesTexturas/CasillasJugadores/X"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_lcunx")
+
+[node name="HSeparator" type="HSeparator" parent="AjustesTexturas/CasillasJugadores/X"]
+visibility_layer = 0
+custom_minimum_size = Vector2(10, 30)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="AjustesTexturas/CasillasJugadores/X"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Elije uno"
+
+[node name="x1" type="TextureButton" parent="AjustesTexturas/CasillasJugadores/X"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("5_lcunx")
+
+[node name="x2" type="TextureButton" parent="AjustesTexturas/CasillasJugadores/X"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("11_tge4n")
+
+[node name="x3" type="TextureButton" parent="AjustesTexturas/CasillasJugadores/X"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+texture_normal = ExtResource("23_o7ly3")
+
+[node name="O" type="VBoxContainer" parent="AjustesTexturas/CasillasJugadores"]
+layout_mode = 2
+size_flags_horizontal = 10
+
+[node name="Label" type="Label" parent="AjustesTexturas/CasillasJugadores/O"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Jugador O"
+
+[node name="TexturaO" type="TextureButton" parent="AjustesTexturas/CasillasJugadores/O"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("7_jdv5f")
+
+[node name="HSeparator" type="HSeparator" parent="AjustesTexturas/CasillasJugadores/O"]
+visibility_layer = 0
+custom_minimum_size = Vector2(10, 30)
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="AjustesTexturas/CasillasJugadores/O"]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Elije uno"
+
+[node name="o1" type="TextureButton" parent="AjustesTexturas/CasillasJugadores/O"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("7_jdv5f")
+
+[node name="o2" type="TextureButton" parent="AjustesTexturas/CasillasJugadores/O"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("13_4l0p2")
+
+[node name="o3" type="TextureButton" parent="AjustesTexturas/CasillasJugadores/O"]
+layout_mode = 2
+size_flags_horizontal = 4
+texture_normal = ExtResource("24_jofkq")
+
+[node name="HSeparator" type="HSeparator" parent="AjustesTexturas"]
+visibility_layer = 0
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="Volver2" type="Button" parent="AjustesTexturas"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+text = "Volver"
+
+[connection signal="toggled" from="VBoxContainer/FullScreen" to="." method="_on_full_screen_toggled"]
+[connection signal="value_changed" from="VBoxContainer/HBoxContainer/Volumen" to="." method="_on_volumen_value_changed"]
+[connection signal="pressed" from="VBoxContainer/Accesibilidad" to="." method="_on_accesibilidad_pressed"]
+[connection signal="pressed" from="VBoxContainer/Volver" to="." method="_on_volver_pressed"]
+[connection signal="toggled" from="Custom/Original/original" to="." method="_on_original_toggled"]
+[connection signal="toggled" from="Custom/Princesa/princesa" to="." method="_on_princesa_toggled"]
+[connection signal="toggled" from="Custom/Daltonicos/daltonicos" to="." method="_on_daltonicos_toggled"]
+[connection signal="pressed" from="Custom/Volver3" to="." method="_on_volver_3_pressed"]
+[connection signal="pressed" from="Custom/IrAPersonalizado" to="." method="_on_ir_a_personalizado_pressed"]
+[connection signal="pressed" from="AjustesTexturas/CasillasJugadores/X/x1" to="." method="_on_x_1_pressed"]
+[connection signal="pressed" from="AjustesTexturas/CasillasJugadores/X/x2" to="." method="_on_x_2_pressed"]
+[connection signal="pressed" from="AjustesTexturas/CasillasJugadores/X/x3" to="." method="_on_x_3_pressed"]
+[connection signal="pressed" from="AjustesTexturas/CasillasJugadores/O/o1" to="." method="_on_o_1_pressed"]
+[connection signal="pressed" from="AjustesTexturas/CasillasJugadores/O/o2" to="." method="_on_o_2_pressed"]
+[connection signal="pressed" from="AjustesTexturas/CasillasJugadores/O/o3" to="." method="_on_o_3_pressed"]
+[connection signal="pressed" from="AjustesTexturas/Volver2" to="." method="_on_volver_2_pressed"]

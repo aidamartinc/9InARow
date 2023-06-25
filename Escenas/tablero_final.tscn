@@ -1,0 +1,94 @@
+[gd_scene load_steps=5 format=3 uid="uid://yk8lloe05yne"]
+
+[ext_resource type="FontFile" uid="uid://dlvmd7pgj858b" path="res://Assets/Kenney Pixel.ttf" id="1_bbaty"]
+[ext_resource type="Script" path="res://Scripts/tablero_final.gd" id="1_euv88"]
+[ext_resource type="Texture2D" uid="uid://cdvgs8vbth3rw" path="res://Assets/Tiles/original/libre.png" id="3_b8jmh"]
+
+[sub_resource type="Theme" id="Theme_30pxf"]
+default_font = ExtResource("1_bbaty")
+
+[node name="TableroFinal" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+theme = SubResource("Theme_30pxf")
+script = ExtResource("1_euv88")
+
+[node name="tablero_base" type="VBoxContainer" parent="."]
+layout_mode = 1
+offset_right = 152.0
+offset_bottom = 152.0
+alignment = 1
+metadata/_edit_use_anchors_ = true
+
+[node name="Fila0" type="HBoxContainer" parent="tablero_base"]
+layout_mode = 2
+
+[node name="Casilla0" type="TextureButton" parent="tablero_base/Fila0"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("3_b8jmh")
+stretch_mode = 0
+
+[node name="Casilla1" type="TextureButton" parent="tablero_base/Fila0"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("3_b8jmh")
+stretch_mode = 0
+
+[node name="Casilla2" type="TextureButton" parent="tablero_base/Fila0"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("3_b8jmh")
+stretch_mode = 0
+
+[node name="Fila1" type="HBoxContainer" parent="tablero_base"]
+layout_mode = 2
+
+[node name="Casilla3" type="TextureButton" parent="tablero_base/Fila1"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("3_b8jmh")
+stretch_mode = 0
+
+[node name="Casilla4" type="TextureButton" parent="tablero_base/Fila1"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("3_b8jmh")
+stretch_mode = 0
+
+[node name="Casilla5" type="TextureButton" parent="tablero_base/Fila1"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("3_b8jmh")
+stretch_mode = 0
+
+[node name="Fila2" type="HBoxContainer" parent="tablero_base"]
+layout_mode = 2
+
+[node name="Casilla6" type="TextureButton" parent="tablero_base/Fila2"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("3_b8jmh")
+stretch_mode = 0
+
+[node name="Casilla7" type="TextureButton" parent="tablero_base/Fila2"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("3_b8jmh")
+stretch_mode = 0
+
+[node name="Casilla8" type="TextureButton" parent="tablero_base/Fila2"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+texture_normal = ExtResource("3_b8jmh")
+stretch_mode = 0
+
+[connection signal="button_up" from="tablero_base/Fila0/Casilla0" to="." method="_on_casilla_0_button_up" flags=18]
+[connection signal="button_up" from="tablero_base/Fila0/Casilla1" to="." method="_on_casilla_1_button_up" flags=18]
+[connection signal="button_up" from="tablero_base/Fila0/Casilla2" to="." method="_on_casilla_2_button_up" flags=18]
+[connection signal="button_up" from="tablero_base/Fila1/Casilla3" to="." method="_on_casilla_3_button_up" flags=18]
+[connection signal="button_up" from="tablero_base/Fila1/Casilla4" to="." method="_on_casilla_4_button_up" flags=18]
+[connection signal="button_up" from="tablero_base/Fila1/Casilla5" to="." method="_on_casilla_5_button_up" flags=18]
+[connection signal="button_up" from="tablero_base/Fila2/Casilla6" to="." method="_on_casilla_6_button_up" flags=18]
+[connection signal="button_up" from="tablero_base/Fila2/Casilla7" to="." method="_on_casilla_7_button_up" flags=18]
+[connection signal="button_up" from="tablero_base/Fila2/Casilla8" to="." method="_on_casilla_8_button_up" flags=18]
